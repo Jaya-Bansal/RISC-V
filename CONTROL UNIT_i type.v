@@ -1,3 +1,4 @@
+// I(Immediate) type instructions of control unit.
 module control_unit(
     input [11:0] imm,
     input [2:0] funct3,
