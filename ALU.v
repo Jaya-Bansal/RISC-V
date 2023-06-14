@@ -68,3 +68,80 @@ module control_unit(
 
     end
     endmodule
+// Load, Store and Branch instructions
+module LOAD(
+    input [11:0]imm,
+    input [2:0]rs1,
+    input clock,
+    input reset,
+    output [6:0]rd
+);
+if (opcode == 7'b0000011) begin
+	regwrite_control_signal = 1;
+	if (imm == 0)
+		LB ws, offset(rs1);
+	else if (imm == 1)
+		LH ws, offset(rs1);
+	else if (imm == 10);
+	LW ws, offset(rs1);
+end
+endmodule
+
+module STORE(
+    input [11:5]imm,
+    input [2:0]rs2,
+    input clock,
+    input reset,
+    output [6:0]rs1
+);
+if (opcode == 7'b0100011) begin
+	regwrite_control_signal = 1;
+	if (imm == 0)
+		SB rs2, offset(rs1);
+	else if (imm == 1)
+		SH rs2, offset(rs1);
+	else if (imm == 10);
+	SW rs2, offset(rs1);
+end
+endmodule
+
+module BRANCH(
+    input [11:5]imm,
+    input [2:0]rs2,
+    input clock,
+    input reset,
+    output [6:0]rs1
+);
+if (opcode == 7'b0000011) begin
+	regwrite_control_signal = 1;
+	if (rs1 == rs2)
+		BEQ rs1, rs2, offset;
+	else if (rs1 != rs2)
+		BNE rs1, rs2, offset;
+end
+endmodule
+
+// Jal, Jalr instructions
+if (opcode == 7'b1101111) begin
+
+  Is_Imm = 1'b1;
+  MemRead = 1'b0;
+  alu_control = 4'b0111;
+  MemWrite = 1'b0;
+  RegWrite = 1'b1;
+  MemtoReg = 1'b0;
+  Branch = 1'b1;
+  done = 1;
+end
+
+
+if (opcode == 7'b1100111) begin
+  Is_Imm = 1'b1;
+  MemRead = 1'b0;
+  alu_control = 4'b0111;
+  MemWrite = 1'b0;
+  RegWrite = 1'b1;
+  MemtoReg = 1'b0;
+  Branch = 1'b0; 
+  done = 1;
+end
