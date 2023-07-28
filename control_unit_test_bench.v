@@ -26,7 +26,7 @@ module CU_tb;
     reg [6:0] opcode;
     wire [3:0] alu_control_signal;
     wire regwrite_control_signal;
-    control_unit dut1(
+    control_unit_R dut1(
         .funct7(funct7),
         .funct3(funct3),
         .opcode(opcode),
