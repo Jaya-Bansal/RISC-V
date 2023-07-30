@@ -35,7 +35,7 @@ module Reg_File(
 
   always @(posedge clk or posedge reset) begin
     if (reset) begin
-    for(integer i = 0; i<32; i=i+1) registers[i] <= 32'h0;
+      for(integer i = 0; i<32; i=i+1) registers[i] <= 32'h0+i;
       end
     else if (regWrite)
       registers[rd] <= writeData;
