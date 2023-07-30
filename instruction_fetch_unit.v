@@ -23,7 +23,6 @@
 module inst_memory(
 input [31:0] instruction_code,
 input reset,
-output reg [11:0] imm,
 output reg [6:0] opcode,
 output reg [2:0] funct3,
 output reg [6:0] funct7,
