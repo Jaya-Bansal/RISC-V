@@ -23,7 +23,27 @@ RISC-V processors typically employ a classic 5-stage pipeline:
   <li><b>Write Back (WB):</b>Result of the execution or memory operation is written back to the destination register.
   </ul>
 Each stage processes an instruction at a time, and instructions flow through the pipeline sequentially.</br> 
-Data paths connect the various pipeline stages and components to facilitate the flow of data and control signals.
 
 ![Screenshot (3851)](https://github.com/Jaya-Bansal/RISC-V/assets/100524013/a1e04c02-2576-4435-a580-6fca8b4ed799)
+
+Data paths connect the various pipeline stages and components to facilitate the flow of data and control signals.
+![image](https://github.com/Jaya-Bansal/RISC-V/assets/98327788/1e6b0001-111c-4b07-91cc-5fd948c98869)
+
+## Cryptography
+
+RISC-V is a very compatible instruction set architecture (ISA) with cryptographic algorithms. It has a number of features that make it well-suited for use with cryptography, including:
+
+1. Bit-Level Operations
+
+2. Integer Arithmetic
+3. Load-Store Architecture
+
+4. Custom Extensions
+
+5. Open-Source Ecosystem
+
+6. Hardware Acceleration
+
+
+
 
